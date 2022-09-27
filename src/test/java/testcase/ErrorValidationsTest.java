@@ -10,10 +10,11 @@ import org.testng.annotations.Test;
 import cart.CartCatalogue;
 import product.ProductCatalogue;
 import utill.Base;
+import utilltest.RetryFailedTC;
 
 public class ErrorValidationsTest extends Base {
 
-	@Test(groups="ErrorHandling")
+	@Test(groups="ErrorHandling", retryAnalyzer=RetryFailedTC.class)
 	public void LoginErrorValidation() throws IOException{
 		
 		//Correct credentials->>("dasgupta.abhishekit@gmail.com", "Abhi@12345");
@@ -22,11 +23,11 @@ public class ErrorValidationsTest extends Base {
 		//relative css setector->
 		//.ng-tns-c4-5.ng-star-inserted.ng-trigger.ng-trigger-flyInOut.ngx-toastr.toast-error
 		landingpage.getLoginErrorMessage();
-		Assert.assertEquals("Incorrect email or password.", landingpage.getLoginErrorMessage());
+		Assert.assertEquals("Incorrect email r password.", landingpage.getLoginErrorMessage()); //correct: "Incorrect email or password."
 		
 	}
 	
-	@Test(groups="ErrorHandling")
+	@Test(groups="ErrorHandling",retryAnalyzer=RetryFailedTC.class)
 	public void ProductCatalogueErrorValidationTest() throws IOException, InterruptedException{
 		// TODO Auto-generated method stub
 		String productName="zara coat 3";

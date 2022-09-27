@@ -1,10 +1,14 @@
 package utill;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
@@ -60,4 +64,19 @@ public class Base {
 		driver.close();
 	}
 	
+	//Take ScreenShot for Failed Test Cases
+	
+	public String getScreenShot(String testCaseName,WebDriver driver) throws IOException
+	{
+		TakesScreenshot ts=(TakesScreenshot)driver;
+		File source=ts.getScreenshotAs(OutputType.FILE);
+		File destination=new File(System.getProperty("user.dir")+ "//reports"+ testCaseName+ ".png");
+		FileUtils.copyFile(source, destination);
+		return System.getProperty("user.dir")+ "//reports"+ testCaseName+ ".png";
+	}
+	
+	
 }
+
+
+//For parallel execution use it into Suits-->>  parallel="tests"

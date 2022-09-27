@@ -15,10 +15,12 @@ import order.OrderList;
 import payment.PaymentThroughCard;
 import product.ProductCatalogue;
 import utill.Base;
+import utilltest.DataReader;
+import utilltest.RetryFailedTC;
 
 public class SubmitOrderTest extends Base {
 	
-	@Test(dataProvider="getData", groups= {"PurchaseProducts"})
+	@Test(dataProvider="getData", groups= {"PurchaseProducts"},retryAnalyzer=RetryFailedTC.class)
 	public void SubmitOrderTest(HashMap<String,String> input) throws IOException{
 		
 		landingpage.loginApplication(input.get("email"), input.get("password"));
@@ -47,7 +49,7 @@ public class SubmitOrderTest extends Base {
 				
 	}
 	
-	@Test (dependsOnMethods={"SubmitOrderTest"},groups= {"PurchaseProducts"})
+	@Test (dependsOnMethods={"SubmitOrderTest"},groups= {"PurchaseProducts"},retryAnalyzer=RetryFailedTC.class)
 	public void OrderHistoryTest() throws InterruptedException
 	{
 		String productName="zara coat 3";
@@ -60,18 +62,11 @@ public class SubmitOrderTest extends Base {
 	}
 	
 	@DataProvider
-	public Object[][] getData()
+	public Object[][] getData() throws IOException
 	{
-		HashMap<String,String> map1=new HashMap<String,String>();
-		map1.put("email", "dasgupta.abhishek0869@gmail.com");
-		map1.put("password", "Abhi@12345");
-		map1.put("productName", "zara coat 3");
-		
-		HashMap<String,String> map2=new HashMap<String,String>();
-		map2.put("email", "abhi@gmail.com");
-		map2.put("password", "Abhi@12345");
-		map2.put("productName", "adidas original");
-		return new Object[][] {{map1} , {map2}};
+		DataReader data=new DataReader();
+		List<HashMap<String,String>> map=data.getJsonDataToMap(System.getProperty("user.dir")+"//src//test//java//resources//PurchaseOrder.json");
+		return new Object[][] {{map.get(0)} , {map.get(1)}};
 	}
 
 }
