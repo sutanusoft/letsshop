@@ -1,4 +1,4 @@
-package utilltest;
+package utiltest;
 
 import java.io.File;
 import java.io.IOException;

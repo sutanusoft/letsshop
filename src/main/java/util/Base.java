@@ -1,4 +1,4 @@
-package utill;
+package util;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,8 +23,8 @@ public class Base {
 	public WebDriver initializeDriver() throws IOException
 	{
 		Properties prop=new Properties();
-		FileInputStream file=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\GlobalData.properties");
-		prop.load(file);
+		FileInputStream fileInputStream=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\resources\\GlobalData.properties");
+		prop.load(fileInputStream);
 		String browserName=prop.getProperty("browser");
 		
 		if(browserName.equalsIgnoreCase("chrome")) 

@@ -10,13 +10,6 @@ import org.openqa.selenium.support.PageFactory;
 import service.AbstractComponent;
 
 public class PaymentThroughCard extends AbstractComponent{
-
-	/*Actions act=new Actions(driver);
-	act.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "India").build().perform();
-	
-	//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
-	driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)")).click();
-	driver.findElement(By.cssSelector(".action__submit")).click(); */
 	
 	WebDriver driver;
 	public PaymentThroughCard(WebDriver driver)
@@ -55,8 +48,5 @@ public class PaymentThroughCard extends AbstractComponent{
 		submit.click();
 		
 	}
-	
-	
-	
 	
 }

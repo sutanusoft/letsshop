@@ -9,7 +9,7 @@
 	</groups>
 	
 	<listeners>
-		<listener class-name="utilltest.Listeners"/>
+		<listener class-name="utiltest.Listeners"/>
 	</listeners>
 
   <test thread-count="5" name="Submit Order Test">

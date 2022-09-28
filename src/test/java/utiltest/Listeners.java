@@ -1,4 +1,4 @@
-package utilltest;
+package utiltest;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import resources.ExtentReporterNG;
-import utill.Base;
+import util.Base;
 
 public class Listeners implements ITestListener{
 

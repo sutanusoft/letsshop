@@ -1,4 +1,4 @@
-package utilltest;
+package utiltest;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;

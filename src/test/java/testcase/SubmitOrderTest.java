@@ -14,9 +14,9 @@ import order.OrderConfirmation;
 import order.OrderList;
 import payment.PaymentThroughCard;
 import product.ProductCatalogue;
-import utill.Base;
-import utilltest.DataReader;
-import utilltest.RetryFailedTC;
+import util.Base;
+import utiltest.DataReader;
+import utiltest.RetryFailedTC;
 
 public class SubmitOrderTest extends Base {
 	
@@ -32,7 +32,7 @@ public class SubmitOrderTest extends Base {
 		
 		CartCatalogue cartCata=productcatalogue.goToCart(); //Navigate to Cart module. And calling that method through child class object as child class object has properties of parent class.		
 		
-		//CartCatalogue cartCata=new CartCatalogue(driver);
+		
 		Boolean match=cartCata.verifyProductDisplay(input.get("productName"));
 		
 		Assert.assertTrue(match);   //Validation can't go to Page Object Files
