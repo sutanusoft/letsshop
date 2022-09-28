@@ -10,6 +10,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
@@ -34,6 +35,7 @@ public class Base {
 		{
 		WebDriverManager.chromedriver().setup();  //Automatically download Chrome Driver & for that have to download WebDriver Manager from Maven Repo
 		driver=new ChromeDriver();
+		ChromeDriverService chromeDriverService = new ChromeDriverService.Builder().usingPort(0).build();
 		
 		}
 		else if(browserName.equalsIgnoreCase("firefox"))
