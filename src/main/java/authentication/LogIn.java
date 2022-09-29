@@ -1,9 +1,7 @@
 package authentication;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -45,8 +43,6 @@ public class LogIn extends AbstractComponent {
 		userEmail.sendKeys(email);
 		userPassword.sendKeys(password);
 		submit.click();
-		//ProductCatalogue productcatalogue=new ProductCatalogue(driver);
-		//return productcatalogue;
 		
 	}
 	
@@ -60,11 +56,6 @@ public class LogIn extends AbstractComponent {
 	{
 		waitForWebElementToAppear(errorMessageLogin);
 		return errorMessageLogin.getText();
-	}
-	
-	
-	
-	
-	
+	}	
 	
 }

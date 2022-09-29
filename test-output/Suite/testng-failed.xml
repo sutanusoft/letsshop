@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" parallel="tests" name="Submit Order Test(failed)">
+  <listeners>
+    <listener class-name="utiltest.Listeners"/>
+  </listeners>
+  <test thread-count="5" parallel="tests" name="Error Validations Test(failed)">
     <groups>
       <run>
-        <include name="PurchaseProducts"/>
+        <include name="ErrorHandling"/>
       </run>
     </groups>
     <classes>
-      <class name="testcase.SubmitOrderTest">
+      <class name="testcase.ErrorValidationsTest">
         <methods>
-          <include name="OrderHistoryTest"/>
-          <include name="launchApplication"/>
-          <include name="SubmitOrderTest" invocation-numbers="0 1"/>
           <include name="tearDown"/>
+          <include name="LoginErrorValidation"/>
+          <include name="ProductCatalogueErrorValidationTest"/>
+          <include name="launchApplication"/>
         </methods>
-      </class> <!-- testcase.SubmitOrderTest -->
+      </class> <!-- testcase.ErrorValidationsTest -->
     </classes>
-  </test> <!-- Submit Order Test(failed) -->
+  </test> <!-- Error Validations Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

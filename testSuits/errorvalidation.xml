@@ -6,6 +6,11 @@
 			<include name ="ErrorHandling"/>
 		</run>	
 	</groups>
+	
+	<listeners>
+		<listener class-name="utiltest.Listeners"/>
+	</listeners>
+
   <test thread-count="5" name="Submit Order Test">
     <classes>
       <class name="testcase.SubmitOrderTest"/>

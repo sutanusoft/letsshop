@@ -17,13 +17,6 @@ public class OrderConfirmation extends AbstractComponent {
 		PageFactory.initElements(driver, this);
 		
 	}
-	
-	/*
-	String orderStatus=driver.findElement(By.cssSelector(".hero-primary")).getText();
-	System.out.println("Status of Order--->>> "+orderStatus);
-	Assert.assertEquals(orderStatus, 	"THANKYOU FOR THE ORDER.");
-	driver.close();
-	*/
 
 	@FindBy(css=".hero-primary")
 	WebElement confirmationText;

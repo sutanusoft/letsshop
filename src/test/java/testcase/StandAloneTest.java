@@ -19,8 +19,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class StandAloneTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		String productName="zara coat 3";
+		
 		WebDriverManager.chromedriver().setup();  //Automatically download Chrome Driver & for that have to download WebDriver Manager from Maven Repo
 		WebDriver driver=new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -68,12 +68,6 @@ public class StandAloneTest {
 		System.out.println("Status of Order--->>> "+orderStatus);
 		Assert.assertEquals(orderStatus, 	"THANKYOU FOR THE ORDER.");
 		driver.close();
-		/*     <test thread-count="5" name="Standalone Test">
-    <classes>
-      <class name="SeleniumEndToEnd.tests.StandAloneTest"/>
-    </classes>
-  </test> <!-- Test --> */
-		
 	}
 
 }

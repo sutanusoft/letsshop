@@ -22,8 +22,6 @@ public class ProductCatalogue extends AbstractComponent {
 		
 	}
 
-	//List<WebElement> products=driver.findElements(By.cssSelector(".mb-3"));
-	
 	@FindBy(css=".mb-3")
 	List<WebElement> products;
 	
@@ -47,7 +45,6 @@ public class ProductCatalogue extends AbstractComponent {
 	public WebElement getProductByName(String productName)  //"zara coat 3"
 	{
 		WebElement prod=getProductList().stream().filter(product->product.findElement(By.cssSelector("b")).getText().equalsIgnoreCase(productName)).findFirst().orElse(null);
-		//
 		
 		return prod;
 	}
@@ -58,8 +55,6 @@ public class ProductCatalogue extends AbstractComponent {
 		prod.findElement(addToCart).click();
 		waitForElementToAppear(toastMessage);
 		waitForElementToDisappear(animation);
-	}
-	
-	
+	}	
 	
 }
